@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: toxic-java-api
+    env: java
+    buildCommand: ./mvnw clean package
+    startCommand: java -jar target/toxic-api-1.0.jar
+    plan: free
