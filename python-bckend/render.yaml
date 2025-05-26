@@ -1,7 +1,12 @@
 services:
   - type: web
-    name: toxic-python-api
+    name: toxic-python-backend
     env: python
     plan: free
     buildCommand: pip install -r requirements.txt
-    startCommand: python app.py
+    startCommand: gunicorn -w 4 -b 0.0.0.0:$PORT app:app
+    healthCheckPath: /predict
+    autoDeploy: true
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: 1
