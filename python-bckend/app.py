@@ -3,8 +3,8 @@ import joblib
 import numpy as np
 
 app = Flask(__name__)
-model = joblib.load('best_model.pkl')
-vectorizer = joblib.load('tfidf_vectorizer.pkl')
+model = joblib.load('python-bckend/best_model.pkl')
+vectorizer = joblib.load('python-bckend/tfidf_vectorizer .pkl')
 
 @app.route('/predict', methods=['POST'])
 def predict():
